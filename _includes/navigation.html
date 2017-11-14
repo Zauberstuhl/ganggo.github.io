@@ -2,7 +2,7 @@
   {% assign navigation_pages = site.html_pages | sort: 'navigation_order' %}
   {% for page in navigation_pages %}
     {% if page.navigation_order %}
-      <li><a class="buttons" href="{{ page.url }}">{{ page.title }}</a></li>
+      <li><a class="buttons none" href="{{ page.url }}">{{ page.title }}</a></li>
     {% endif %}
   {% endfor %}
 </ul>
