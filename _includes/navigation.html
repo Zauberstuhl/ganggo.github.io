@@ -1,0 +1,15 @@
+<ul>
+  {% assign navigation_pages = site.html_pages | sort: 'navigation_order' %}
+  {% for page in navigation_pages %}
+    {% if page.navigation_order %}
+      <li><a class="buttons" href="{{ page.url }}">{{ page.title }}</a></li>
+    {% endif %}
+  {% endfor %}
+</ul>
+<hr/>
+<ul id="downloadBtns">
+  {% if site.show_downloads %}
+    {% include latest_release.html %}
+  {% endif %}
+  <li><a class="buttons github" href="https://github.com/{{ site.github.slug }}">View On GitHub</a></li>
+</ul>

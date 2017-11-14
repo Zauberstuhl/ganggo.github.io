@@ -1,0 +1,28 @@
+{% include header.html %}
+
+<div class="wrapper">
+  <header>
+    <h1 class="header">{{ site.title | default: site.github.repository_name }}</h1>
+    <p class="header">{{ site.description | default: site.github.project_tagline }}</p>
+
+    {% include navigation.html %}
+
+    {% if site.github.is_project_page %}
+      <p class="header">This project is maintained by <a class="header name" href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
+    {% endif %}
+
+    {% if site.github.is_user_page %}
+      <ul>
+        <li><a class="buttons github" href="{{ site.github.owner_url }}">GitHub Profile</a></li>
+      </ul>
+    {% endif %}
+  </header>
+
+  <section>
+    {{ content }}
+  </section>
+
+</div>
+<!--[if !IE]><script>fixScale(document);</script><![endif]-->
+
+{% include footer.html %}

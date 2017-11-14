@@ -1,1 +1,6 @@
+title: GangGo
+description: A Decentralized Social Network
+show_downloads: true
+github:
+  slug: ganggo/updater
 theme: jekyll-theme-dinky

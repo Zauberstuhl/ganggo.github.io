@@ -1,37 +1,25 @@
-## Welcome to GitHub Pages
+---
+title: Home
+layout: default
+navigation_order: 1
+---
 
-You can use the [editor on GitHub](https://github.com/Zauberstuhl/ganggo.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+# {{ site.title }} - {{site.description}}
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+GangGo is a decentralized social network written in [GoLang](https://golang.org/). It uses the same federation library like [Diaspora](https://diasporafoundation.org/) and therefore can participate in conversations like any other [Pod](https://wiki.diasporafoundation.org/Choosing_a_pod#Why_do_I_need_to_choose_a_pod.3F)!
 
-### Markdown
+> This is the application server repository. Which is still
+> in pre-alpha state so please don't use it for production!
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Usage
 
-```markdown
-Syntax highlighted code block
+Fetch the latest updater version from [github.com/ganggo/updater/releases](https://github.com/ganggo/updater/releases) and execute it. It will come with a small installation wizard and guide you through the first steps.
 
-# Header 1
-## Header 2
-### Header 3
+## Contribution
 
-- Bulleted
-- List
+If you want to push your changes to the offical ganggo repository:
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Zauberstuhl/ganggo.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+* follow the [development guide](/development.html)
+* fork the project
+* create a new branch with your code changes
+* create a [pull request](https://github.com/ganggo/ganggo/compare)

@@ -1,0 +1,16 @@
+<script>
+(function() {
+  var apiUrl = "https://api.github.com/repos/{{ site.github.slug }}/releases/latest";
+  $.getJSON(apiUrl).done(function (release) {
+    $.each(release.assets, function(index, asset) {
+      var a = $("<a>").attr("class", "buttons")
+        .attr("href", asset.browser_download_url)
+        .append(release.tag_name + " " + asset.name);
+      var li = $("<li>").attr("style", "height:30px")
+        .attr("class", "download").append(a);
+      // append download link to the menu
+      $("#downloadBtns").append(li);
+    });
+  });
+})();
+</script>
