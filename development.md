@@ -58,3 +58,6 @@ Assuming you already installed all dependencies and followed the above examples 
 
 The `VERSION` flag is used to identify different software versions via [gopkg.in](http://gopkg.in).
 
+# API
+
+If you want to write e.g. an application for GangGo checkout our [API documentation page](/api/index.html).
