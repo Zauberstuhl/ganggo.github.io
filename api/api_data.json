@@ -224,6 +224,11 @@
       },
       "examples": [
         {
+          "title": "Unauthorized",
+          "content": "HTTP/1.1 401 Unauthorized\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        },
+        {
           "title": "ServerError",
           "content": "HTTP/1.1 500 Internal Server Error\n{\n  \"error\": \"[...]\"\n}",
           "type": "json"
@@ -329,6 +334,11 @@
         ]
       },
       "examples": [
+        {
+          "title": "Unauthorized",
+          "content": "HTTP/1.1 401 Unauthorized\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        },
         {
           "title": "ServerError",
           "content": "HTTP/1.1 500 Internal Server Error\n{\n  \"error\": \"[...]\"\n}",
@@ -664,6 +674,11 @@
       },
       "examples": [
         {
+          "title": "Unauthorized",
+          "content": "HTTP/1.1 401 Unauthorized\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        },
+        {
           "title": "NotFound",
           "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"[...]\"\n}",
           "type": "json"
@@ -949,6 +964,11 @@
       },
       "examples": [
         {
+          "title": "Unauthorized",
+          "content": "HTTP/1.1 401 Unauthorized\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        },
+        {
           "title": "NotFound",
           "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"[...]\"\n}",
           "type": "json"
@@ -975,6 +995,20 @@
             "optional": false,
             "field": "access_token",
             "description": "<p>Oauth access token</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "fields",
+            "description": "<p>Display only specific fields, e.g. fields=ID,Person(ID:Profile(ID:ImageUrl))</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": true,
+            "field": "offset",
+            "description": "<p>Post offset for database</p>"
           }
         ]
       }
@@ -1043,7 +1077,7 @@
       "examples": [
         {
           "title": "Success-Response",
-          "content": "HTTP/1.1 200 OK\n[\n {\n   \"ID\": 12,\n   \"CreatedAt\": \"2018-01-08T15:25:43Z\",\n   \"UpdatedAt\": \"2018-01-08T15:25:43Z\",\n   \"TargetGuid\": \"cc783a9749f09c7d817a1707a4c052bc\",\n   \"PersonID\": 1,\n   \"UserID\": 2,\n   \"Unread\": true,\n   \"TargetType\": \"Post\"\n }\n]",
+          "content": "HTTP/1.1 200 OK\n{\n  \"0\": {\n         \"ID\": 12,\n         \"CreatedAt\": \"2018-01-08T15:25:43Z\",\n         \"UpdatedAt\": \"2018-01-08T15:25:43Z\",\n         \"TargetGuid\": \"cc783a9749f09c7d817a1707a4c052bc\",\n         \"PersonID\": 1,\n         \"UserID\": 2,\n         \"Unread\": true,\n         \"TargetType\": \"Post\"\n       }\n}",
           "type": "json"
         }
       ]
@@ -1296,7 +1330,7 @@
     "version": "0.0.0",
     "filename": "app/controllers/oauth.go",
     "groupTitle": "Oauth endpoint",
-    "groupDescription": "<p>Create and delete oauth tokens</p>"
+    "groupDescription": "<p>Create and delete oauth tokens</p> <h2>Authentication Process Example</h2> <p>If you want to access API features you will have to register your application first:</p> <pre><code>curl -X POST -d &quot;grant_type=password&amp;username=ganggo&amp;password=s3cr3t&amp;client_id=MyAwesomeAppID&quot; https://&lt;your-server&gt;/api/v0/oauth/tokens </code></pre> <p>This will return an access token which you should include in your HTTP header (access_token=[...]) for future API calls:</p> <pre><code>curl -H &quot;access_token: 0987654312&quot; -X GET https://&lt;your-server&gt;/api/v0/posts </code></pre>"
   },
   {
     "type": "delete",
@@ -1365,7 +1399,7 @@
     "version": "0.0.0",
     "filename": "app/controllers/oauth.go",
     "groupTitle": "Oauth endpoint",
-    "groupDescription": "<p>Create and delete oauth tokens</p>"
+    "groupDescription": "<p>Create and delete oauth tokens</p> <h2>Authentication Process Example</h2> <p>If you want to access API features you will have to register your application first:</p> <pre><code>curl -X POST -d &quot;grant_type=password&amp;username=ganggo&amp;password=s3cr3t&amp;client_id=MyAwesomeAppID&quot; https://&lt;your-server&gt;/api/v0/oauth/tokens </code></pre> <p>This will return an access token which you should include in your HTTP header (access_token=[...]) for future API calls:</p> <pre><code>curl -H &quot;access_token: 0987654312&quot; -X GET https://&lt;your-server&gt;/api/v0/posts </code></pre>"
   },
   {
     "type": "get",
