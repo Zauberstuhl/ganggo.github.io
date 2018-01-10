@@ -88,7 +88,7 @@ define({ "api": [
       },
       "examples": [
         {
-          "title": "Success-Response:",
+          "title": "Success-Response",
           "content": "HTTP/1.1 200 OK\n{\n  \"ID\": 1,\n  \"CreatedAt\": \"2017-12-20T00:02:10Z\",\n  \"UpdatedAt\": \"2017-12-20T00:02:10Z\",\n  \"Name\": \"Friends\",\n  \"UserID\": 1,\n  \"Default\": false,\n  \"Memberships\": [...]\n}",
           "type": "json"
         }
@@ -96,19 +96,30 @@ define({ "api": [
     },
     "error": {
       "fields": {
-        "Error 4xx": [
+        "Errors 4xx/5xx": [
           {
-            "group": "Error 4xx",
+            "group": "Errors",
+            "type": "String",
             "optional": false,
             "field": "error",
-            "description": "<p>Contains recent error message</p>"
+            "description": "<p>Contains the recent error message</p>"
           }
         ]
       },
       "examples": [
         {
-          "title": "Error-Response:",
-          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"Error 1052: Column 'xyz' not found\"\n}",
+          "title": "Unauthorized",
+          "content": "HTTP/1.1 401 Unauthorized\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "BadRequest",
+          "content": "HTTP/1.1 400 Bad Request\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "ServerError",
+          "content": "HTTP/1.1 500 Internal Server Error\n{\n  \"error\": \"[...]\"\n}",
           "type": "json"
         }
       ]
@@ -193,7 +204,7 @@ define({ "api": [
       },
       "examples": [
         {
-          "title": "Success-Response:",
+          "title": "Success-Response",
           "content": " HTTP/1.1 200 OK\n [\n  {\n    \"ID\": 1,\n    \"CreatedAt\": \"2017-12-20T00:02:10Z\",\n    \"UpdatedAt\": \"2017-12-20T00:02:10Z\",\n    \"AspectID\": 1,\n    \"PersonID\": 1\n  }\n]",
           "type": "json"
         }
@@ -201,19 +212,20 @@ define({ "api": [
     },
     "error": {
       "fields": {
-        "Error 4xx": [
+        "Errors 4xx/5xx": [
           {
-            "group": "Error 4xx",
+            "group": "Errors",
+            "type": "String",
             "optional": false,
             "field": "error",
-            "description": "<p>Contains recent error message</p>"
+            "description": "<p>Contains the recent error message</p>"
           }
         ]
       },
       "examples": [
         {
-          "title": "Error-Response:",
-          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"Error 1052: Column 'xyz' not found\"\n}",
+          "title": "ServerError",
+          "content": "HTTP/1.1 500 Internal Server Error\n{\n  \"error\": \"[...]\"\n}",
           "type": "json"
         }
       ]
@@ -298,7 +310,7 @@ define({ "api": [
       },
       "examples": [
         {
-          "title": "Success-Response:",
+          "title": "Success-Response",
           "content": " HTTP/1.1 200 OK\n [\n  {\n    \"ID\": 1,\n    \"CreatedAt\": \"2017-12-20T00:02:10Z\",\n    \"UpdatedAt\": \"2017-12-20T00:02:10Z\",\n    \"AspectID\": 1,\n    \"PersonID\": 1\n  }\n]",
           "type": "json"
         }
@@ -306,19 +318,20 @@ define({ "api": [
     },
     "error": {
       "fields": {
-        "Error 4xx": [
+        "Errors 4xx/5xx": [
           {
-            "group": "Error 4xx",
+            "group": "Errors",
+            "type": "String",
             "optional": false,
             "field": "error",
-            "description": "<p>Contains recent error message</p>"
+            "description": "<p>Contains the recent error message</p>"
           }
         ]
       },
       "examples": [
         {
-          "title": "Error-Response:",
-          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"Error 1052: Column 'xyz' not found\"\n}",
+          "title": "ServerError",
+          "content": "HTTP/1.1 500 Internal Server Error\n{\n  \"error\": \"[...]\"\n}",
           "type": "json"
         }
       ]
@@ -417,7 +430,7 @@ define({ "api": [
       },
       "examples": [
         {
-          "title": "Success-Response:",
+          "title": "Success-Response",
           "content": " HTTP/1.1 200 OK\n [\n  {\n    \"ID\": 1,\n    \"CreatedAt\": \"2017-12-20T00:02:10Z\",\n    \"UpdatedAt\": \"2017-12-20T00:02:10Z\",\n    \"Name\": \"Friends\",\n    \"UserID\": 1,\n    \"Default\": false,\n    \"Memberships\": [...]\n  }\n]",
           "type": "json"
         }
@@ -425,19 +438,25 @@ define({ "api": [
     },
     "error": {
       "fields": {
-        "Error 4xx": [
+        "Errors 4xx/5xx": [
           {
-            "group": "Error 4xx",
+            "group": "Errors",
+            "type": "String",
             "optional": false,
             "field": "error",
-            "description": "<p>Contains recent error message</p>"
+            "description": "<p>Contains the recent error message</p>"
           }
         ]
       },
       "examples": [
         {
-          "title": "Error-Response:",
-          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"Error 1052: Column 'xyz' not found\"\n}",
+          "title": "Unauthorized",
+          "content": "HTTP/1.1 401 Unauthorized\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "NotFound",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"[...]\"\n}",
           "type": "json"
         }
       ]
@@ -489,19 +508,30 @@ define({ "api": [
     },
     "error": {
       "fields": {
-        "Error 4xx": [
+        "Errors 4xx/5xx": [
           {
-            "group": "Error 4xx",
+            "group": "Errors",
+            "type": "String",
             "optional": false,
             "field": "error",
-            "description": "<p>Contains recent error message</p>"
+            "description": "<p>Contains the recent error message</p>"
           }
         ]
       },
       "examples": [
         {
-          "title": "Error-Response:",
-          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"Error 1052: Column 'xyz' not found\"\n}",
+          "title": "Unauthorized",
+          "content": "HTTP/1.1 401 Unauthorized\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "NotFound",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "BadRequest",
+          "content": "HTTP/1.1 400 Bad Request\n{\n  \"error\": \"[...]\"\n}",
           "type": "json"
         }
       ]
@@ -614,7 +644,7 @@ define({ "api": [
       },
       "examples": [
         {
-          "title": "Success-Response:",
+          "title": "Success-Response",
           "content": "HTTP/1.1 200 OK\n[\n {\n   \"ID\": 12,\n   \"CreatedAt\": \"2018-01-08T15:25:43Z\",\n   \"UpdatedAt\": \"2018-01-08T15:25:43Z\",\n   \"Text\": \"hi\",\n   \"ShareableID\": 20,\n   \"PersonID\": 1,\n   \"Guid\": \"cc783a9749f09c7d817a1707a4c052bc\",\n   \"LikesCount\": 0,\n   \"ShareableType\": \"Post\",\n   [...]\n }\n]",
           "type": "json"
         }
@@ -622,19 +652,20 @@ define({ "api": [
     },
     "error": {
       "fields": {
-        "Error 4xx": [
+        "Errors 4xx/5xx": [
           {
-            "group": "Error 4xx",
+            "group": "Errors",
+            "type": "String",
             "optional": false,
             "field": "error",
-            "description": "<p>Contains recent error message</p>"
+            "description": "<p>Contains the recent error message</p>"
           }
         ]
       },
       "examples": [
         {
-          "title": "Error-Response:",
-          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"Error 1052: Column 'xyz' not found\"\n}",
+          "title": "NotFound",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"[...]\"\n}",
           "type": "json"
         }
       ]
@@ -754,7 +785,7 @@ define({ "api": [
       },
       "examples": [
         {
-          "title": "Success-Response:",
+          "title": "Success-Response",
           "content": "HTTP/1.1 200 OK\n{\n  \"ID\": 12,\n  \"CreatedAt\": \"2018-01-08T15:25:43Z\",\n  \"UpdatedAt\": \"2018-01-08T15:25:43Z\",\n  \"TargetID\": 20,\n  \"PersonID\": 1,\n  \"Positive\": true,\n  \"Guid\": \"cc783a9749f09c7d817a1707a4c052bc\",\n  \"TargetType\": \"Post\",\n  [...]\n}",
           "type": "json"
         }
@@ -762,19 +793,30 @@ define({ "api": [
     },
     "error": {
       "fields": {
-        "Error 4xx": [
+        "Errors 4xx/5xx": [
           {
-            "group": "Error 4xx",
+            "group": "Errors",
+            "type": "String",
             "optional": false,
             "field": "error",
-            "description": "<p>Contains recent error message</p>"
+            "description": "<p>Contains the recent error message</p>"
           }
         ]
       },
       "examples": [
         {
-          "title": "Error-Response:",
-          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"Error 1052: Column 'xyz' not found\"\n}",
+          "title": "Unauthorized",
+          "content": "HTTP/1.1 401 Unauthorized\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "NotFound",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "ServerError",
+          "content": "HTTP/1.1 500 Internal Server Error\n{\n  \"error\": \"[...]\"\n}",
           "type": "json"
         }
       ]
@@ -887,7 +929,7 @@ define({ "api": [
       },
       "examples": [
         {
-          "title": "Success-Response:",
+          "title": "Success-Response",
           "content": "HTTP/1.1 200 OK\n[\n {\n   \"ID\": 12,\n   \"CreatedAt\": \"2018-01-08T15:25:43Z\",\n   \"UpdatedAt\": \"2018-01-08T15:25:43Z\",\n   \"TargetID\": 20,\n   \"PersonID\": 1,\n   \"Positive\": true,\n   \"Guid\": \"cc783a9749f09c7d817a1707a4c052bc\",\n   \"TargetType\": \"Post\",\n   [...]\n }\n]",
           "type": "json"
         }
@@ -895,19 +937,20 @@ define({ "api": [
     },
     "error": {
       "fields": {
-        "Error 4xx": [
+        "Errors 4xx/5xx": [
           {
-            "group": "Error 4xx",
+            "group": "Errors",
+            "type": "String",
             "optional": false,
             "field": "error",
-            "description": "<p>Contains recent error message</p>"
+            "description": "<p>Contains the recent error message</p>"
           }
         ]
       },
       "examples": [
         {
-          "title": "Error-Response:",
-          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"Error 1052: Column 'xyz' not found\"\n}",
+          "title": "NotFound",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"[...]\"\n}",
           "type": "json"
         }
       ]
@@ -999,7 +1042,7 @@ define({ "api": [
       },
       "examples": [
         {
-          "title": "Success-Response:",
+          "title": "Success-Response",
           "content": "HTTP/1.1 200 OK\n[\n {\n   \"ID\": 12,\n   \"CreatedAt\": \"2018-01-08T15:25:43Z\",\n   \"UpdatedAt\": \"2018-01-08T15:25:43Z\",\n   \"TargetGuid\": \"cc783a9749f09c7d817a1707a4c052bc\",\n   \"PersonID\": 1,\n   \"UserID\": 2,\n   \"Unread\": true,\n   \"TargetType\": \"Post\"\n }\n]",
           "type": "json"
         }
@@ -1007,19 +1050,25 @@ define({ "api": [
     },
     "error": {
       "fields": {
-        "Error 4xx": [
+        "Errors 4xx/5xx": [
           {
-            "group": "Error 4xx",
+            "group": "Errors",
+            "type": "String",
             "optional": false,
             "field": "error",
-            "description": "<p>Contains recent error message</p>"
+            "description": "<p>Contains the recent error message</p>"
           }
         ]
       },
       "examples": [
         {
-          "title": "Error-Response:",
-          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"Error 1052: Column 'xyz' not found\"\n}",
+          "title": "Unauthorized",
+          "content": "HTTP/1.1 401 Unauthorized\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "ServerError",
+          "content": "HTTP/1.1 500 Internal Server Error\n{\n  \"error\": \"[...]\"\n}",
           "type": "json"
         }
       ]
@@ -1118,7 +1167,7 @@ define({ "api": [
       },
       "examples": [
         {
-          "title": "Success-Response:",
+          "title": "Success-Response",
           "content": "HTTP/1.1 200 OK\n{\n  \"ID\": 12,\n  \"CreatedAt\": \"2018-01-08T15:25:43Z\",\n  \"UpdatedAt\": \"2018-01-08T15:25:43Z\",\n  \"TargetGuid\": \"cc783a9749f09c7d817a1707a4c052bc\",\n  \"PersonID\": 1,\n  \"UserID\": 2,\n  \"Unread\": false,\n  \"TargetType\": \"Post\"\n}",
           "type": "json"
         }
@@ -1126,19 +1175,25 @@ define({ "api": [
     },
     "error": {
       "fields": {
-        "Error 4xx": [
+        "Errors 4xx/5xx": [
           {
-            "group": "Error 4xx",
+            "group": "Errors",
+            "type": "String",
             "optional": false,
             "field": "error",
-            "description": "<p>Contains recent error message</p>"
+            "description": "<p>Contains the recent error message</p>"
           }
         ]
       },
       "examples": [
         {
-          "title": "Error-Response:",
-          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"Error 1052: Column 'xyz' not found\"\n}",
+          "title": "Unauthorized",
+          "content": "HTTP/1.1 401 Unauthorized\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "ServerError",
+          "content": "HTTP/1.1 500 Internal Server Error\n{\n  \"error\": \"[...]\"\n}",
           "type": "json"
         }
       ]
@@ -1202,7 +1257,7 @@ define({ "api": [
       },
       "examples": [
         {
-          "title": "Success-Response:",
+          "title": "Success-Response",
           "content": "HTTP/1.1 200 OK\n{\n  \"token\": \"5b5d5b4f7044e3444db73504e8b08be8\"\n}",
           "type": "json"
         }
@@ -1210,19 +1265,30 @@ define({ "api": [
     },
     "error": {
       "fields": {
-        "Error 4xx": [
+        "Errors 4xx/5xx": [
           {
-            "group": "Error 4xx",
+            "group": "Errors",
+            "type": "String",
             "optional": false,
             "field": "error",
-            "description": "<p>Contains recent error message</p>"
+            "description": "<p>Contains the recent error message</p>"
           }
         ]
       },
       "examples": [
         {
-          "title": "Error-Response:",
-          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"Error 1052: Column 'xyz' not found\"\n}",
+          "title": "NotFound",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "BadRequest",
+          "content": "HTTP/1.1 400 Bad Request\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "ServerError",
+          "content": "HTTP/1.1 500 Internal Server Error\n{\n  \"error\": \"[...]\"\n}",
           "type": "json"
         }
       ]
@@ -1265,7 +1331,7 @@ define({ "api": [
       },
       "examples": [
         {
-          "title": "Success-Response:",
+          "title": "Success-Response",
           "content": "HTTP/1.1 200 OK\n{}",
           "type": "json"
         }
@@ -1273,19 +1339,25 @@ define({ "api": [
     },
     "error": {
       "fields": {
-        "Error 4xx": [
+        "Errors 4xx/5xx": [
           {
-            "group": "Error 4xx",
+            "group": "Errors",
+            "type": "String",
             "optional": false,
             "field": "error",
-            "description": "<p>Contains recent error message</p>"
+            "description": "<p>Contains the recent error message</p>"
           }
         ]
       },
       "examples": [
         {
-          "title": "Error-Response:",
-          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"Error 1052: Column 'xyz' not found\"\n}",
+          "title": "Unauthorized",
+          "content": "HTTP/1.1 401 Unauthorized\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "ServerError",
+          "content": "HTTP/1.1 500 Internal Server Error\n{\n  \"error\": \"[...]\"\n}",
           "type": "json"
         }
       ]
@@ -1377,7 +1449,7 @@ define({ "api": [
       },
       "examples": [
         {
-          "title": "Success-Response:",
+          "title": "Success-Response",
           "content": "HTTP/1.1 200 OK\n{\n  \"ID\": 12,\n  \"CreatedAt\": \"2018-01-08T15:25:43Z\",\n  \"UpdatedAt\": \"2018-01-08T15:25:43Z\",\n  \"Guid\": \"cc783a9749f09c7d817a1707a4c052bc\",\n  \"Author\": \"test@localhost\",\n  \"SerializedPublicKey\": \"[...]\",\n  \"UserID\": 1,\n}",
           "type": "json"
         }
@@ -1385,19 +1457,20 @@ define({ "api": [
     },
     "error": {
       "fields": {
-        "Error 4xx": [
+        "Errors 4xx/5xx": [
           {
-            "group": "Error 4xx",
+            "group": "Errors",
+            "type": "String",
             "optional": false,
             "field": "error",
-            "description": "<p>Contains recent error message</p>"
+            "description": "<p>Contains the recent error message</p>"
           }
         ]
       },
       "examples": [
         {
-          "title": "Error-Response:",
-          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"Error 1052: Column 'xyz' not found\"\n}",
+          "title": "NotFound",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"[...]\"\n}",
           "type": "json"
         }
       ]
@@ -1532,7 +1605,7 @@ define({ "api": [
       },
       "examples": [
         {
-          "title": "Success-Response:",
+          "title": "Success-Response",
           "content": "HTTP/1.1 200 OK\n{\n  \"Guid\": \"5b5d5b4f7044e3444db73504e8b08be8\",\n  \"ID\": 20,\n  \"Text\": \"hi whats up?\\r\\n\\r\\n\"\n}",
           "type": "json"
         }
@@ -1540,19 +1613,30 @@ define({ "api": [
     },
     "error": {
       "fields": {
-        "Error 4xx": [
+        "Errors 4xx/5xx": [
           {
-            "group": "Error 4xx",
+            "group": "Errors",
+            "type": "String",
             "optional": false,
             "field": "error",
-            "description": "<p>Contains recent error message</p>"
+            "description": "<p>Contains the recent error message</p>"
           }
         ]
       },
       "examples": [
         {
-          "title": "Error-Response:",
-          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"Error 1052: Column 'xyz' not found\"\n}",
+          "title": "BadRequest",
+          "content": "HTTP/1.1 400 Bad Request\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Unauthorized",
+          "content": "HTTP/1.1 401 Unauthorized\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "ServerError",
+          "content": "HTTP/1.1 500 Internal Server Error\n{\n  \"error\": \"[...]\"\n}",
           "type": "json"
         }
       ]
@@ -1686,7 +1770,7 @@ define({ "api": [
       },
       "examples": [
         {
-          "title": "Success-Response:",
+          "title": "Success-Response",
           "content": "HTTP/1.1 200 OK\n{\n  \"0\": {\n         \"Guid\": \"5b5d5b4f7044e3444db73504e8b08be8\",\n         \"ID\": 20,\n         \"Text\": \"hi whats up?\\r\\n\\r\\n\"\n       }\n}",
           "type": "json"
         }
@@ -1694,19 +1778,25 @@ define({ "api": [
     },
     "error": {
       "fields": {
-        "Error 4xx": [
+        "Errors 4xx/5xx": [
           {
-            "group": "Error 4xx",
+            "group": "Errors",
+            "type": "String",
             "optional": false,
             "field": "error",
-            "description": "<p>Contains recent error message</p>"
+            "description": "<p>Contains the recent error message</p>"
           }
         ]
       },
       "examples": [
         {
-          "title": "Error-Response:",
-          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"Error 1052: Column 'xyz' not found\"\n}",
+          "title": "Unauthorized",
+          "content": "HTTP/1.1 401 Unauthorized\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "ServerError",
+          "content": "HTTP/1.1 500 Internal Server Error\n{\n  \"error\": \"[...]\"\n}",
           "type": "json"
         }
       ]
@@ -1833,7 +1923,7 @@ define({ "api": [
       },
       "examples": [
         {
-          "title": "Success-Response:",
+          "title": "Success-Response",
           "content": "HTTP/1.1 200 OK\n{\n  \"Guid\": \"5b5d5b4f7044e3444db73504e8b08be8\",\n  \"ID\": 20,\n  \"Text\": \"hi whats up?\\r\\n\\r\\n\"\n}",
           "type": "json"
         }
@@ -1841,19 +1931,25 @@ define({ "api": [
     },
     "error": {
       "fields": {
-        "Error 4xx": [
+        "Errors 4xx/5xx": [
           {
-            "group": "Error 4xx",
+            "group": "Errors",
+            "type": "String",
             "optional": false,
             "field": "error",
-            "description": "<p>Contains recent error message</p>"
+            "description": "<p>Contains the recent error message</p>"
           }
         ]
       },
       "examples": [
         {
-          "title": "Error-Response:",
-          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"Error 1052: Column 'xyz' not found\"\n}",
+          "title": "Unauthorized",
+          "content": "HTTP/1.1 401 Unauthorized\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "ServerError",
+          "content": "HTTP/1.1 500 Internal Server Error\n{\n  \"error\": \"[...]\"\n}",
           "type": "json"
         }
       ]
@@ -2015,7 +2111,7 @@ define({ "api": [
       },
       "examples": [
         {
-          "title": "Success-Response:",
+          "title": "Success-Response",
           "content": "HTTP/1.1 200 OK\n{\n  \"ID\": 2,\n  \"CreatedAt\": \"2017-12-20T00:02:05Z\",\n  \"UpdatedAt\": \"2017-12-20T00:02:05Z\",\n  \"Author\": \"diaspora@localhost:3000\",\n  \"FirstName\": \"\",\n  \"LastName\": \"\",\n  \"ImageUrl\": \"[...]\",\n  \"ImageUrlSmall\": \"[...]\",\n  \"ImageUrlMedium\": \"[...]\",\n  \"Birthday\": \"0001-01-01T00:00:00Z\",\n  \"Gender\": \"\",\n  \"Bio\": \"\",\n  \"Searchable\": true,\n  \"PersonID\": 2,\n  \"Location\": \"\",\n  \"FullName\": \"\",\n  \"Nsfw\":false\n}",
           "type": "json"
         }
@@ -2023,19 +2119,20 @@ define({ "api": [
     },
     "error": {
       "fields": {
-        "Error 4xx": [
+        "Errors 4xx/5xx": [
           {
-            "group": "Error 4xx",
+            "group": "Errors",
+            "type": "String",
             "optional": false,
             "field": "error",
-            "description": "<p>Contains recent error message</p>"
+            "description": "<p>Contains the recent error message</p>"
           }
         ]
       },
       "examples": [
         {
-          "title": "Error-Response:",
-          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"Error 1052: Column 'xyz' not found\"\n}",
+          "title": "NotFound",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"[...]\"\n}",
           "type": "json"
         }
       ]
