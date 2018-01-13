@@ -353,6 +353,119 @@ define({ "api": [
   },
   {
     "type": "get",
+    "url": "/aspects",
+    "title": "Fetch user aspect list",
+    "name": "ApiAspect_Index",
+    "group": "Aspects",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "fields",
+            "description": "<p>Display only specific fields, e.g. fields=ID,Person(ID:Profile(ID:ImageUrl))</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "CreatedAt",
+            "description": "<p>Timestamp of creation</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "UpdatedAt",
+            "description": "<p>Timestamp of last replacment</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "Guid",
+            "description": "<p>Unique global ID</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "ID",
+            "description": "<p>Unique database ID</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "Name",
+            "description": "<p>Aspect name</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "UserID",
+            "description": "<p>User database ID</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "Default",
+            "description": "<p>Default aspect</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "Memberships",
+            "description": "<p>Aspect memberships</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response",
+          "content": "HTTP/1.1 200 OK\n{\n     \"0\": {\n         \"ID\": 1,\n         \"CreatedAt\": \"2017-12-20T00:02:10Z\",\n         \"UpdatedAt\": \"2017-12-20T00:02:10Z\",\n         \"Name\": \"Friends\",\n         \"UserID\": 1,\n         \"Default\": false,\n         \"Memberships\": [...]\n          }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Errors 4xx/5xx": [
+          {
+            "group": "Errors",
+            "type": "String",
+            "optional": false,
+            "field": "error",
+            "description": "<p>Contains the recent error message</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Unauthorized",
+          "content": "HTTP/1.1 401 Unauthorized\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controllers/aspect.go",
+    "groupTitle": "Aspects endpoint",
+    "groupDescription": "<p>Viewing, creating and deleting Aspect structures</p>"
+  },
+  {
+    "type": "get",
     "url": "/people/:id/aspects",
     "title": "Display aspects which Person is included in",
     "name": "ApiAspect_ShowPerson",
@@ -480,7 +593,7 @@ define({ "api": [
     "type": "post",
     "url": "/posts/:id/comments",
     "title": "Create comment on post",
-    "name": "ApiComment_Create",
+    "name": "ApiComment_CreatePost",
     "group": "Comments",
     "parameter": {
       "fields": {
@@ -555,7 +668,7 @@ define({ "api": [
     "type": "get",
     "url": "/posts/:id/comments",
     "title": "Display comments related to post",
-    "name": "ApiComment_Index",
+    "name": "ApiComment_IndexPost",
     "group": "Comments",
     "parameter": {
       "fields": {
@@ -656,6 +769,152 @@ define({ "api": [
         {
           "title": "Success-Response",
           "content": "HTTP/1.1 200 OK\n[\n {\n   \"ID\": 12,\n   \"CreatedAt\": \"2018-01-08T15:25:43Z\",\n   \"UpdatedAt\": \"2018-01-08T15:25:43Z\",\n   \"Text\": \"hi\",\n   \"ShareableID\": 20,\n   \"PersonID\": 1,\n   \"Guid\": \"cc783a9749f09c7d817a1707a4c052bc\",\n   \"LikesCount\": 0,\n   \"ShareableType\": \"Post\",\n   [...]\n }\n]",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Errors 4xx/5xx": [
+          {
+            "group": "Errors",
+            "type": "String",
+            "optional": false,
+            "field": "error",
+            "description": "<p>Contains the recent error message</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Unauthorized",
+          "content": "HTTP/1.1 401 Unauthorized\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "NotFound",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controllers/comment.go",
+    "groupTitle": "Comments endpoint",
+    "groupDescription": "<p>Viewing, creating and deleting Comment structures</p>"
+  },
+  {
+    "type": "get",
+    "url": "/comments/:id",
+    "title": "Display a specific comment",
+    "name": "ApiComment_Show",
+    "group": "Comments",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Comment database ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "access_token",
+            "description": "<p>Oauth access token</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "fields",
+            "description": "<p>Display only specific fields, e.g. fields=ID,Person(ID:Profile(ID:ImageUrl))</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "CreatedAt",
+            "description": "<p>Timestamp of creation</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "UpdatedAt",
+            "description": "<p>Timestamp of last replacment</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "Guid",
+            "description": "<p>Unique global ID</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "ID",
+            "description": "<p>Unique database ID</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "Text",
+            "description": "<p>Status message</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "ShareableID",
+            "description": "<p>Post database ID</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "PersonID",
+            "description": "<p>Person database ID</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "ShareableType",
+            "description": "<p>Shareable type e.g. Post, Comment</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Hash",
+            "optional": false,
+            "field": "CommentSignature",
+            "description": "<p>Signature</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Hash",
+            "optional": false,
+            "field": "Person",
+            "description": "<p>Person structure</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response",
+          "content": "HTTP/1.1 200 OK\n{\n  \"ID\": 12,\n  \"CreatedAt\": \"2018-01-08T15:25:43Z\",\n  \"UpdatedAt\": \"2018-01-08T15:25:43Z\",\n  \"Text\": \"hi\",\n  \"ShareableID\": 20,\n  \"PersonID\": 1,\n  \"Guid\": \"cc783a9749f09c7d817a1707a4c052bc\",\n  \"LikesCount\": 0,\n  \"ShareableType\": \"Post\",\n  [...]\n}",
           "type": "json"
         }
       ]
@@ -1101,8 +1360,8 @@ define({ "api": [
           "type": "json"
         },
         {
-          "title": "ServerError",
-          "content": "HTTP/1.1 500 Internal Server Error\n{\n  \"error\": \"[...]\"\n}",
+          "title": "NotFound",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"[...]\"\n}",
           "type": "json"
         }
       ]
@@ -1829,8 +2088,8 @@ define({ "api": [
           "type": "json"
         },
         {
-          "title": "ServerError",
-          "content": "HTTP/1.1 500 Internal Server Error\n{\n  \"error\": \"[...]\"\n}",
+          "title": "NotFound",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"[...]\"\n}",
           "type": "json"
         }
       ]
@@ -1982,8 +2241,8 @@ define({ "api": [
           "type": "json"
         },
         {
-          "title": "ServerError",
-          "content": "HTTP/1.1 500 Internal Server Error\n{\n  \"error\": \"[...]\"\n}",
+          "title": "NotFound",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"[...]\"\n}",
           "type": "json"
         }
       ]
