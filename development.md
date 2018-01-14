@@ -47,11 +47,6 @@ That's it! You can switch into `~/workspace/ganggo/ganggo` now and start the web
 
 ## Updater
 
-If you want to build the update-wrapper as well switch into your workspace and fetch the repository:
-
-    cd ~/workspace/ganggo
-    git clone --depth=1 https://github.com/ganggo/updater
-
 Assuming you already installed all dependencies and followed the above examples you can build a new release with:
 
     VERSION=v0 make release
