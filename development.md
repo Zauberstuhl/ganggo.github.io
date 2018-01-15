@@ -19,7 +19,7 @@ This will ensure that all source files and binaries will be placed in `$GOPATH` 
 
 Finally we can execute `make` to fetch the rest of the npm/GoLang dependencies:
 
-    VERSION=v0 make install-deps
+    VERSION=v0 make install
 
 Depending on your internet connection, that could take a while.
 
