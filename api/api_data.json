@@ -229,6 +229,11 @@
           "type": "json"
         },
         {
+          "title": "NotFound",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        },
+        {
           "title": "ServerError",
           "content": "HTTP/1.1 500 Internal Server Error\n{\n  \"error\": \"[...]\"\n}",
           "type": "json"
@@ -337,6 +342,11 @@
         {
           "title": "Unauthorized",
           "content": "HTTP/1.1 401 Unauthorized\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "NotFound",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"[...]\"\n}",
           "type": "json"
         },
         {
@@ -655,6 +665,76 @@
         {
           "title": "BadRequest",
           "content": "HTTP/1.1 400 Bad Request\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controllers/comment.go",
+    "groupTitle": "Comments endpoint",
+    "groupDescription": "<p>Viewing, creating and deleting Comment structures</p>"
+  },
+  {
+    "type": "delete",
+    "url": "/comments/:guid",
+    "title": "Delete a comment",
+    "name": "ApiComment_Delete",
+    "group": "Comments",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "access_token",
+            "description": "<p>Oauth access token</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "guid",
+            "description": "<p>Unique global ID</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response",
+          "content": "HTTP/1.1 200 OK\n{}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Errors 4xx/5xx": [
+          {
+            "group": "Errors",
+            "type": "String",
+            "optional": false,
+            "field": "error",
+            "description": "<p>Contains the recent error message</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "BadRequest",
+          "content": "HTTP/1.1 400 BadRequest\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Unauthorized",
+          "content": "HTTP/1.1 401 Unauthorized\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "NotFound",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"[...]\"\n}",
           "type": "json"
         }
       ]
@@ -1091,6 +1171,76 @@
         {
           "title": "ServerError",
           "content": "HTTP/1.1 500 Internal Server Error\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controllers/like.go",
+    "groupTitle": "Likes endpoint",
+    "groupDescription": "<p>Viewing, creating and deleting Like structures</p>"
+  },
+  {
+    "type": "delete",
+    "url": "/likes/:guid",
+    "title": "Delete a like",
+    "name": "ApiLike_Delete",
+    "group": "Likes",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "access_token",
+            "description": "<p>Oauth access token</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "guid",
+            "description": "<p>Unique global ID</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response",
+          "content": "HTTP/1.1 200 OK\n{}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Errors 4xx/5xx": [
+          {
+            "group": "Errors",
+            "type": "String",
+            "optional": false,
+            "field": "error",
+            "description": "<p>Contains the recent error message</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "BadRequest",
+          "content": "HTTP/1.1 400 BadRequest\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Unauthorized",
+          "content": "HTTP/1.1 401 Unauthorized\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "NotFound",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"[...]\"\n}",
           "type": "json"
         }
       ]
@@ -1940,6 +2090,76 @@
     "groupDescription": "<p>Viewing, creating and deleting Post structures</p>"
   },
   {
+    "type": "delete",
+    "url": "/posts/:guid",
+    "title": "Delete post/reshare",
+    "name": "ApiPost_Delete",
+    "group": "Posts",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "access_token",
+            "description": "<p>Oauth access token</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "guid",
+            "description": "<p>Unique global ID</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response",
+          "content": "HTTP/1.1 200 OK\n{}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Errors 4xx/5xx": [
+          {
+            "group": "Errors",
+            "type": "String",
+            "optional": false,
+            "field": "error",
+            "description": "<p>Contains the recent error message</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "BadRequest",
+          "content": "HTTP/1.1 400 BadRequest\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Unauthorized",
+          "content": "HTTP/1.1 401 Unauthorized\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "NotFound",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controllers/post.go",
+    "groupTitle": "Posts endpoint",
+    "groupDescription": "<p>Viewing, creating and deleting Post structures</p>"
+  },
+  {
     "type": "get",
     "url": "/posts",
     "title": "Fetch all posts",
@@ -2090,6 +2310,81 @@
         {
           "title": "NotFound",
           "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controllers/post.go",
+    "groupTitle": "Posts endpoint",
+    "groupDescription": "<p>Viewing, creating and deleting Post structures</p>"
+  },
+  {
+    "type": "post",
+    "url": "/posts/:guid/reshare",
+    "title": "Reshare a post",
+    "name": "ApiPost_Reshare",
+    "group": "Posts",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "access_token",
+            "description": "<p>Oauth access token</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "guid",
+            "description": "<p>Unique global ID</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response",
+          "content": "HTTP/1.1 200 OK\n{}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Errors 4xx/5xx": [
+          {
+            "group": "Errors",
+            "type": "String",
+            "optional": false,
+            "field": "error",
+            "description": "<p>Contains the recent error message</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "BadRequest",
+          "content": "HTTP/1.1 400 BadRequest\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Unauthorized",
+          "content": "HTTP/1.1 401 Unauthorized\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "NotFound",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "ServerError",
+          "content": "HTTP/1.1 500 Internal Server Error\n{\n  \"error\": \"[...]\"\n}",
           "type": "json"
         }
       ]
