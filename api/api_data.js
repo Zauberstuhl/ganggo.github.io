@@ -2729,5 +2729,118 @@ define({ "api": [
     "filename": "app/controllers/profile.go",
     "groupTitle": "Profiles endpoint",
     "groupDescription": "<p>Viewing, creating and deleting Profile structures</p>"
+  },
+  {
+    "type": "post",
+    "url": "/search",
+    "title": "Discover a new person",
+    "name": "ApiSearch_Create",
+    "group": "Search",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "handle",
+            "description": "<p>Person network handle</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "access_token",
+            "description": "<p>Oauth access token</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "CreatedAt",
+            "description": "<p>Timestamp of creation</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "UpdatedAt",
+            "description": "<p>Timestamp of last replacment</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "ID",
+            "description": "<p>Unique database ID</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "Guid",
+            "description": "<p>Person global ID</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "Author",
+            "description": "<p>Handle with TLD</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "SerializedPublicKey",
+            "description": "<p>Public key</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "UserID",
+            "description": "<p>User database ID (null if not a local user)</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response",
+          "content": "HTTP/1.1 200 OK\n{\n  \"ID\": 12,\n  \"CreatedAt\": \"2018-01-08T15:25:43Z\",\n  \"UpdatedAt\": \"2018-01-08T15:25:43Z\",\n  \"Guid\": \"cc783a9749f09c7d817a1707a4c052bc\",\n  \"Author\": \"test@localhost\",\n  \"SerializedPublicKey\": \"[...]\",\n  \"UserID\": 1,\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Errors 4xx/5xx": [
+          {
+            "group": "Errors",
+            "type": "String",
+            "optional": false,
+            "field": "error",
+            "description": "<p>Contains the recent error message</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "NotFound",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controllers/search.go",
+    "groupTitle": "Search endpoint",
+    "groupDescription": "<p>Discover new people in the network</p>"
   }
 ] });
