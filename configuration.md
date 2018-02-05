@@ -12,6 +12,7 @@ navigation_order: 2
 
 To setup Postgres, run the following commands:
 
+{% highlight bash linenos %}
     su - postgres
     psql postgres
 
@@ -19,6 +20,7 @@ To setup Postgres, run the following commands:
     CREATE DATABASE ganggo OWNER ganggo;
     GRANT ALL PRIVILEGES ON DATABASE ganggo to ganggo;
     \q
+{% endhighlight %}
 
 The schema will be applied while booting!
 

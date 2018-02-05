@@ -1,16 +1,27 @@
-<ul>
-  {% assign navigation_pages = site.html_pages | sort: 'navigation_order' %}
-  {% for page in navigation_pages %}
-    {% if page.navigation_order %}
-      <li><a class="buttons none" href="{{ page.url }}">{{ page.title }}</a></li>
-    {% endif %}
-  {% endfor %}
-  <li><a class="buttons none" href="/api/index.html">API Docs</a></li>
-</ul>
-<hr/>
-<ul id="downloadBtns">
-  {% if site.show_downloads %}
-    {% include latest_release.html %}
-  {% endif %}
-  <li><a class="buttons github" href="https://github.com/{{ site.github.slug }}">View On GitHub</a></li>
-</ul>
+{% assign navigation_pages = site.html_pages | sort: 'navigation_order' %}
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
+    <ul class="navbar-nav">
+      {% for page in navigation_pages %}
+        {% if page.navigation_order %}
+      <li class="nav-item">
+        <a class="nav-link" href="{{ page.url }}">{{ page.title }}</a>
+      </li>
+        {% endif %}
+      {% endfor %}
+      <li class="nav-item">
+        <a class="nav-link" href="/api/index.html">API Docs</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">GitHub</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="https://github.com/{{ site.github.slug }}">View On GitHub</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

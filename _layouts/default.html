@@ -1,27 +1,34 @@
 {% include header.html %}
 
-<div class="wrapper">
-  <header>
-    <h1 class="header">{{ site.title | default: site.github.repository_name }}</h1>
-    <p class="header">{{ site.description | default: site.github.project_tagline }}</p>
+{% include navigation.html %}
 
-    {% include navigation.html %}
+<div class="container">
+  <main role="main">
+    <div class="jumbotron">
+      <div class="col text-center">
+        <h1>{{ site.title | default: site.github.repository_name }}</h1>
+        <p class="header">{{ site.description | default: site.github.project_tagline }}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+      {% if site.github.is_project_page %}
+        <p class="header">This project is maintained by <a class="header name" href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
+      {% endif %}
 
-    {% if site.github.is_project_page %}
-      <p class="header">This project is maintained by <a class="header name" href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
-    {% endif %}
-
-    {% if site.github.is_user_page %}
-      <ul>
-        <li><a class="buttons github" href="{{ site.github.owner_url }}">GitHub Profile</a></li>
-      </ul>
-    {% endif %}
-  </header>
-
-  <section>
-    {{ content }}
-  </section>
-
+      {% if site.github.is_user_page %}
+        <ul>
+          <li><a class="buttons github" href="{{ site.github.owner_url }}">GitHub Profile</a></li>
+        </ul>
+      {% endif %}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+      {{ content }}
+      </div>
+    </div>
+  </div>
 </div>
 <!--[if !IE]><script>fixScale(document);</script><![endif]-->
 
