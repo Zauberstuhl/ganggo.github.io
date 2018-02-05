@@ -2842,5 +2842,200 @@ define({ "api": [
     "filename": "app/controllers/search.go",
     "groupTitle": "Search endpoint",
     "groupDescription": "<p>Discover new people in the network</p>"
+  },
+  {
+    "type": "post",
+    "url": "/users/streams",
+    "title": "Create a new user stream",
+    "name": "ApiUserStream_Create",
+    "group": "UserStreams",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "access_token",
+            "description": "<p>Oauth access token</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>The name of stream</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "tags",
+            "description": "<p>Tags separated by &quot;,&quot;</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "people",
+            "description": "<p>Author handle (e.g. lukas@sechat.org) separated by &quot;,&quot;</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "expression",
+            "description": "<p>Regular expression</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "UserID",
+            "description": "<p>User database identifier</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "Name",
+            "description": "<p>User stream name</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "Tags",
+            "description": "<p>Tags separated by &quot;,&quot;</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "People",
+            "description": "<p>People separated by &quot;,&quot;</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "Expression",
+            "description": "<p>Regular Expression</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response",
+          "content": "HTTP/1.1 200 OK\n{\n  \"UserID\": 1,\n  \"Name\": \"Test\",\n  \"Tags\": \"linux,software,opensource\",\n  \"People\": \"lukas@sechat.org,hq@ggg.social\",\n  \"Expression\": \"ganggo|socialhome\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Errors 4xx/5xx": [
+          {
+            "group": "Errors",
+            "type": "String",
+            "optional": false,
+            "field": "error",
+            "description": "<p>Contains the recent error message</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "BadRequest",
+          "content": "HTTP/1.1 400 Bad Request\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Unauthorized",
+          "content": "HTTP/1.1 401 Unauthorized\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "ServerError",
+          "content": "HTTP/1.1 500 Internal Server Error\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controllers/user_stream.go",
+    "groupTitle": "UserStreams endpoint",
+    "groupDescription": "<p>Viewing, creating and deleting UserStream structures</p>"
+  },
+  {
+    "type": "delete",
+    "url": "/users/streams/:id",
+    "title": "Delete a user stream",
+    "name": "ApiUserStream_Delete",
+    "group": "UserStreams",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "access_token",
+            "description": "<p>Oauth access token</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>The database identifier for the struct</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response",
+          "content": "HTTP/1.1 200 OK\n{}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Errors 4xx/5xx": [
+          {
+            "group": "Errors",
+            "type": "String",
+            "optional": false,
+            "field": "error",
+            "description": "<p>Contains the recent error message</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "BadRequest",
+          "content": "HTTP/1.1 400 Bad Request\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Unauthorized",
+          "content": "HTTP/1.1 401 Unauthorized\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controllers/user_stream.go",
+    "groupTitle": "UserStreams endpoint",
+    "groupDescription": "<p>Viewing, creating and deleting UserStream structures</p>"
   }
 ] });
