@@ -1,7 +1,7 @@
 ---
 title: Locales
 layout: default
-navigation_order: 4
+documentation: true
 ---
 
 # Translation

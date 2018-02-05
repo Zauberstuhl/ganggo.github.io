@@ -6,7 +6,7 @@
       var a = $("<a>").attr("class", "dropdown-item")
         .attr("href", asset.browser_download_url).append("Download " + name[1]);
       // append download link to the menu
-      $(".dropdown-menu").append(a);
+      $("#github").append(a);
     });
   });
 })();

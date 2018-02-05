@@ -1,7 +1,7 @@
 ---
 title: Development
 layout: default
-navigation_order: 3
+documentation: true
 ---
 
 # Dependencies

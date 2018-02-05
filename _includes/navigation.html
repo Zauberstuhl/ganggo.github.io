@@ -1,4 +1,5 @@
 {% assign navigation_pages = site.html_pages | sort: 'navigation_order' %}
+<a href="https://github.com/ganggo"><img style="position: absolute; top: 0; left: 0; border: 0; z-index: 9999;" src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"></a>
 <nav class="navbar navbar-expand navbar-dark bg-dark">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -13,13 +14,21 @@
       </li>
         {% endif %}
       {% endfor %}
-      <li class="nav-item">
-        <a class="nav-link" href="/api/index.html">API Docs</a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Documentation</a>
+        <div class="dropdown-menu">
+          {% for page in navigation_pages %}
+            {% if page.documentation %}
+          <a class="dropdown-item" href="{{ page.url }}">{{ page.title }}</a>
+            {% endif %}
+          {% endfor %}
+          <a class="dropdown-item" href="/api/index.html">API Docs</a>
+        </div>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">GitHub</a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="https://github.com/{{ site.github.slug }}">View On GitHub</a>
+        <div id="github" class="dropdown-menu">
+          <a class="dropdown-item" href="{{ site.github.owner_url }}">GitHub Profile</a>
         </div>
       </li>
     </ul>
