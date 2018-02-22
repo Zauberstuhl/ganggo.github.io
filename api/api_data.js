@@ -3037,5 +3037,94 @@ define({ "api": [
     "filename": "app/controllers/user_stream.go",
     "groupTitle": "UserStreams endpoint",
     "groupDescription": "<p>Viewing, creating and deleting UserStream structures</p>"
+  },
+  {
+    "type": "get",
+    "url": "/people/:guid/stream",
+    "title": "Fetch person stream",
+    "name": "ApiUserStream_ShowPersonStream",
+    "group": "UserStreams",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "guid",
+            "description": "<p>Unique global or database ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": true,
+            "field": "offset",
+            "description": "<p>Post offset for database</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "fields",
+            "description": "<p>Display only specific fields, e.g. fields=ID,Person(ID:Profile(ID:ImageUrl)). This will only work on standard format!</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "format",
+            "description": "<p>On default we will use the standard GangGo output but for compatibility reasons you can choose format &quot;diaspora&quot; as well</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response (format=default)",
+          "content": "HTTP/1.1 200 OK\n{\n  \"0\": {\n         \"Guid\": \"5b5d5b4f7044e3444db73504e8b08be8\",\n         \"ID\": 20,\n         \"Text\": \"hi whats up?\\r\\n\\r\\n\",\n         [...]\n  }\n}",
+          "type": "json"
+        },
+        {
+          "title": "Success-Response (format=diaspora)",
+          "content": "HTTP/1.1 200 OK\n[\n  {\n    \"public\": true,\n    \"guid\": \"abe68905a61297a686d675796d6b5169\",\n    \"author\": {\n                \"id\": 1,\n                \"guid\": \"bb9e7958aa201ffbd47852fe83e1a1fa\"\n    },\n    \"post_type\": \"StatusMessage\",\n    \"text\": \"a public post\",\n    \"provider_display_name\": \"GangGo\",\n    \"created_at\": \"2018-02-03T23:47:35.168488+01:00\"\n  }\n]",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Errors 4xx/5xx": [
+          {
+            "group": "Errors",
+            "type": "String",
+            "optional": false,
+            "field": "error",
+            "description": "<p>Contains the recent error message</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Unauthorized",
+          "content": "HTTP/1.1 401 Unauthorized\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "NotFound",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "ServerError",
+          "content": "HTTP/1.1 500 Internal Server Error\n{\n  \"error\": \"[...]\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controllers/user_stream.go",
+    "groupTitle": "UserStreams endpoint",
+    "groupDescription": "<p>Viewing, creating and deleting UserStream structures</p>"
   }
 ] });

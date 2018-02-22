@@ -19,40 +19,40 @@ After downloading and installing both dependencies do not forget to setup your g
 
 This will ensure that all source files and binaries will be placed in `$GOPATH` and will be available in your shell via your `$PATH`-variable.
 
+# Workspace
+
+Building a development environment requires fetching the sources first:
+
+{% highlight bash linenos %}
+    go get -d github.com/ganggo/ganggo
+{% endhighlight %}
+
 Finally we can execute `make` to fetch the rest of the npm/GoLang dependencies:
 
 {% highlight bash linenos %}
-    VERSION=v0 make install
+    cd $GOPATH/src/github.com/ganggo/ganggo && make install
 {% endhighlight %}
 
 Depending on your internet connection, that could take a while.
 
-# Workspace
-
-Assuming we want to work on the API, Federation and application server we should
-create a workspace first:
+That's it! You can switch into `$GOPATH/src/github.com/ganggo/ganggo` apply your changes and start the web-server by running:
 
 {% highlight bash linenos %}
-    mkdir -p ~/workspace/ganggo
-    cd ~/workspace/ganggo
-    git clone --depth=1 https://github.com/ganggo/ganggo
-    git clone --depth=1 https://github.com/ganggo/api
-    git clone --depth=1 https://github.com/ganggo/federation
+    revel run github.com/ganggo/ganggo
 {% endhighlight %}
 
-Since `go build` will only build within `$GOPATH` we remove the previouse downloaded libs and create three symlinks to our workspace:
+## Unit tests
+
+Running unit tests can be achieved by simply executing `make`
 
 {% highlight bash linenos %}
-    rm -r $GOPATH/src/gopkg.in/ganggo/ganggo.v0 $GOPATH/src/gopkg.in/ganggo/api.v0 $GOPATH/src/gopkg.in/ganggo/federation.v0
-    ln -s $GOPATH/src/gopkg.in/ganggo/ganggo.v0 ~/workspace/ganggo/ganggo
-    ln -s $GOPATH/src/gopkg.in/ganggo/api.v0 ~/workspace/ganggo/api
-    ln -s $GOPATH/src/gopkg.in/ganggo/federation.v0 ~/workspace/ganggo/federation
+    make test
 {% endhighlight %}
 
-That's it! You can switch into `~/workspace/ganggo/ganggo` now and start the web-server by running:
+or alternatively `revel`:
 
 {% highlight bash linenos %}
-    revel run gopkg.in/ganggo/ganggo.v0
+    revel test github.com/ganggo/ganggo
 {% endhighlight %}
 
 ## Updater
@@ -62,5 +62,3 @@ Assuming you already installed all dependencies and followed the above examples 
 {% highlight bash linenos %}
     VERSION=v0 make release
 {% endhighlight %}
-
-The `VERSION` flag is used to identify different software versions via [gopkg.in](http://gopkg.in).
