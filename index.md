@@ -1,19 +1,27 @@
 ---
-title: Home
+title: Welcome
 layout: default
 navigation_order: 1
 ---
 
+<span class="badge badge-danger px-2 py-2">
+GangGo is still in Alpha-state! Please don't use it for production.
+</span>
+
 # {{ site.title }} - {{site.description}}
 
-GangGo is a decentralized social network written in [GoLang](https://golang.org/). It uses the same federation library like [Diaspora](https://diasporafoundation.org/) and therefore can participate in conversations like any other [Pod](https://wiki.diasporafoundation.org/Choosing_a_pod#Why_do_I_need_to_choose_a_pod.3F)!
+GangGo is a decentralized social network written in [GoLang](https://golang.org/). It uses the same federation library like [Diaspora](https://diasporafoundation.org/) and therefore can participate in conversations like any other [Pod](https://the-federation.info/nodes)!
 
-> This is the application server repository. Which is still
-> in pre-alpha state so please don't use it for production!
+## Installation
 
-## Usage
+<asciinema-player src="/assets/casts/installation.cast"></asciinema-player>
+<script src="/assets/js/asciinema-player.js"></script>
 
-Fetch the latest updater version from [github.com/ganggo/ganggo/releases](https://github.com/ganggo/ganggo/releases) and execute it. It will come with a small installation wizard and guide you through the first steps.
+<br />
+
+<button class="github-link btn btn-outline-success"></button> and make it executable `chmod +x updater.linux-amd64.alpha`!
+
+It comes with a small installation wizard :) Happy Federating!
 
 ## Contribution
 
